@@ -52,4 +52,13 @@ public class Basket {
             }
         }
     }
+
+    public Double getValue() {
+        Double value = 0.0;
+        for(Map.Entry<Item, Integer> entry : this.basket.entrySet()) {
+            Double entryValue = entry.getKey().getPrice() * entry.getValue();
+            value += entryValue;
+        }
+        return value;
+    }
 }

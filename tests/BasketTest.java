@@ -63,4 +63,13 @@ public class BasketTest {
         int size = basket.size();
         Assert.assertEquals(2, size);
     }
+
+    @Test
+    public void testGetValue() {
+        basket.add(apple);
+        basket.add(apple);
+        basket.add(banana);
+        Double value = basket.getValue();
+        Assert.assertEquals(1.40, value, 0.001);
+    }
 }
