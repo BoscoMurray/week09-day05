@@ -29,4 +29,11 @@ public class BasketTest {
         int size = basket.size();
         Assert.assertEquals(0, size);
     }
+
+    @Test
+    public void testAddItem() {
+        basket.add(apple);
+        int size = basket.size();
+        Assert.assertEquals(1, size);
+    }
 }
