@@ -11,7 +11,7 @@ import shop.Item;
 public class BasketTest {
     private Item apple;
     private Item banana;
-    private Item orange;
+    private Item whiskey;
     private Customer jimmy;
     private Basket basket;
 
@@ -19,7 +19,7 @@ public class BasketTest {
     public void before() {
         apple = new Item("Apple", 0.50);
         banana = new Item("Banana", 0.40);
-        orange = new Item("Orange", 0.55);
+        whiskey = new Item("Whiskey", 20.55);
         jimmy = new Customer("Jimmy");
         basket = new Basket();
     }
@@ -73,4 +73,10 @@ public class BasketTest {
         Assert.assertEquals(0.90, value, 0.001);
     }
 
+    @Test
+    public void testDiscountOver20() {
+        basket.add(whiskey);
+        Double value = basket.getValue();
+        Assert.assertEquals(18.50, value, 0.001);
+    }
 }

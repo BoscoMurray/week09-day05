@@ -1,5 +1,7 @@
 package shop;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -60,6 +62,7 @@ public class Basket {
             Double entryValue = this.getEntryValue(entry.getKey(), entry.getValue());
             value += entryValue;
         }
+        if (value >= 20.0) { value = getDiscountPercentage(value, 0.9); }
         return value;
     }
 
@@ -74,6 +77,11 @@ public class Basket {
             total += item.getPrice();
         }
         return total;
+    }
+
+    private Double getDiscountPercentage(Double value, Double discount) {
+        Double tempValue = value * discount;
+        return new BigDecimal(tempValue).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 
 }
