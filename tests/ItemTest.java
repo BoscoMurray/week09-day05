@@ -8,7 +8,7 @@ import shop.Item;
  */
 public class ItemTest {
 
-    Item apple;
+    private Item apple;
 
     @Before
     public void before() {
