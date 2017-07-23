@@ -62,7 +62,12 @@ public class Basket {
             Double entryValue = this.getEntryValue(entry.getKey(), entry.getValue());
             value += entryValue;
         }
-        if (value >= 20.0) { value = getDiscountPercentage(value, 0.9); }
+        if (value >= 20.0) {
+            Double discount = 0.9;
+            value = getDiscountPercentage(value, discount); }
+        if (customer != null && customer.getLoyalty()) {
+            Double discount = 0.98;
+            value = getDiscountPercentage(value, discount); }
         return value;
     }
 

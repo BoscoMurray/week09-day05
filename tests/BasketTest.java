@@ -79,4 +79,14 @@ public class BasketTest {
         Double value = basket.getValue();
         Assert.assertEquals(18.50, value, 0.001);
     }
+
+    @Test
+    public void testDiscountWithLoyalty() {
+        basket.add(apple);
+        basket.add(whiskey);
+        jimmy.setLoyaltyTrue();
+        basket.addCustomer(jimmy);
+        Double value = basket.getValue();
+        Assert.assertEquals(18.57, value, 0.001);
+    }
 }
