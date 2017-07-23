@@ -56,9 +56,24 @@ public class Basket {
     public Double getValue() {
         Double value = 0.0;
         for(Map.Entry<Item, Integer> entry : this.basket.entrySet()) {
-            Double entryValue = entry.getKey().getPrice() * entry.getValue();
+            Double entryValue = this.getEntryValue(entry.getKey(), entry.getValue());
+//            Double entryValue = entry.getKey().getPrice() * entry.getValue();
             value += entryValue;
         }
         return value;
     }
+
+    private Double getEntryValue(Item item, Integer quantity) {
+        if (quantity == 0) { return 0.0; }
+
+        Double total;
+        if (quantity % 2 == 0) {
+            total = item.getPrice() * quantity / 2;
+        } else {
+            total = item.getPrice() * (quantity-1) / 2;
+            total += item.getPrice();
+        }
+        return total;
+    }
+
 }

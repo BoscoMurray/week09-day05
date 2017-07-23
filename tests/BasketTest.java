@@ -70,6 +70,7 @@ public class BasketTest {
         basket.add(apple);
         basket.add(banana);
         Double value = basket.getValue();
-        Assert.assertEquals(1.40, value, 0.001);
+        Assert.assertEquals(0.90, value, 0.001);
     }
+
 }
