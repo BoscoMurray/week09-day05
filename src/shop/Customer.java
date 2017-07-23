@@ -1,5 +1,7 @@
 package shop;
 
+import java.util.function.BooleanSupplier;
+
 /**
  * Created by user on 23/07/2017.
  */
@@ -14,5 +16,13 @@ public class Customer {
 
     public String getName() {
         return name;
+    }
+
+    public Boolean getLoyalty() {
+        return loyalty;
+    }
+
+    public void setLoyaltyTrue() {
+        this.loyalty = true;
     }
 }

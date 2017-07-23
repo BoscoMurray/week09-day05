@@ -1,3 +1,4 @@
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,5 +26,12 @@ public class CustomerTest {
     public void testLoyaltyFalse() {
         Boolean loyalty = jimmy.getLoyalty();
         Assert.assertEquals(false, loyalty);
+    }
+
+    @Test
+    public void testLoyaltyTrue() {
+        jimmy.setLoyaltyTrue();
+        Boolean loyalty = jimmy.getLoyalty();
+        Assert.assertEquals(true, loyalty);
     }
 }
