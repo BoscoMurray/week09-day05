@@ -25,7 +25,7 @@ public class BasketTest {
     }
 
     @Test
-    public void testEmptyBasket() {
+    public void testForEmptyBasket() {
         int size = basket.size();
         Assert.assertEquals(0, size);
     }
@@ -44,5 +44,23 @@ public class BasketTest {
         basket.addCustomer(jimmy);
         Customer customer = basket.getCustomer();
         Assert.assertEquals(jimmy, customer);
+    }
+
+    @Test
+    public void testEmptyingOfBasket() {
+        basket.add(apple);
+        basket.empty();
+        int size = basket.size();
+        Assert.assertEquals(0, size);
+    }
+
+    @Test
+    public void testRemoveItem() {
+        basket.add(apple);
+        basket.add(apple);
+        basket.add(banana);
+        basket.remove(apple);
+        int size = basket.size();
+        Assert.assertEquals(2, size);
     }
 }

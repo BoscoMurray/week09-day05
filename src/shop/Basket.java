@@ -21,7 +21,7 @@ public class Basket {
         }
 
         Integer count = 0;
-        for(Map.Entry<Item, Integer> entry : basket.entrySet()) {
+        for(Map.Entry<Item, Integer> entry : this.basket.entrySet()) {
             count += entry.getValue();
         }
         return count;
@@ -29,7 +29,7 @@ public class Basket {
 
     public void add(Item item) {
         Integer count = basket.get(item);
-        basket.put(item, (count==null) ? 1 : count+1);
+        this.basket.put(item, (count==null) ? 1 : count+1);
     }
 
     public void addCustomer(Customer customer) {
@@ -38,5 +38,18 @@ public class Basket {
 
     public Customer getCustomer() {
         return customer;
+    }
+
+    public void empty() {
+        this.basket.clear();
+    }
+
+    public void remove(Item item) {
+        for(Map.Entry<Item, Integer> entry : this.basket.entrySet()) {
+            Integer count = entry.getValue();
+            if (item == entry.getKey()) {
+                this.basket.put(item, count -1);
+            }
+        }
     }
 }
