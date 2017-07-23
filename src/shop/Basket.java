@@ -50,6 +50,7 @@ public class Basket {
             if (item == entry.getKey()) {
                 this.basket.put(item, count -1);
             }
+            if (entry.getValue() <= 0) { this.basket.remove(entry.getKey()); }
         }
     }
 
@@ -57,7 +58,6 @@ public class Basket {
         Double value = 0.0;
         for(Map.Entry<Item, Integer> entry : this.basket.entrySet()) {
             Double entryValue = this.getEntryValue(entry.getKey(), entry.getValue());
-//            Double entryValue = entry.getKey().getPrice() * entry.getValue();
             value += entryValue;
         }
         return value;
