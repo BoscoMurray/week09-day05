@@ -31,4 +31,12 @@ public class Basket {
         Integer count = basket.get(item);
         basket.put(item, (count==null) ? 1 : count+1);
     }
+
+    public void addCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
 }

@@ -38,4 +38,11 @@ public class BasketTest {
         int size = basket.size();
         Assert.assertEquals(3, size);
     }
+
+    @Test
+    public void testAddCustomer() {
+        basket.addCustomer(jimmy);
+        Customer customer = basket.getCustomer();
+        Assert.assertEquals(jimmy, customer);
+    }
 }
